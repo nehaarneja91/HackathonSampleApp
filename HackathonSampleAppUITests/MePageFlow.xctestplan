@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "BA544A79-C0CA-4EC8-82D8-3EE279268195",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "HackathonSampleAppUITests\/testAddEmailFlow()",
+        "HackathonSampleAppUITests\/testListViewFlow()",
+        "HackathonSampleAppUITests\/testOverviewPage()"
+      ],
+      "target" : {
+        "containerPath" : "container:HackathonSampleApp.xcodeproj",
+        "identifier" : "D77A629B253CE16A00D44D31",
+        "name" : "HackathonSampleAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
