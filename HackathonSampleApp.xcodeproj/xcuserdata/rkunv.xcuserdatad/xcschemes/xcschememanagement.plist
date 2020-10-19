@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>HackathonSampleAppUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D77A627A253CE16700D44D31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D77A6290253CE16A00D44D31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D77A629B253CE16A00D44D31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
