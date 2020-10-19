@@ -9,12 +9,16 @@
     }
   ],
   "defaultOptions" : {
+    "areLocalizationScreenshotsEnabled" : true,
     "codeCoverage" : false,
+    "language" : "en",
+    "region" : "US",
     "targetForVariableExpansion" : {
       "containerPath" : "container:HackathonSampleApp.xcodeproj",
       "identifier" : "D77A627A253CE16700D44D31",
       "name" : "HackathonSampleApp"
-    }
+    },
+    "uiTestingScreenshotsLifetime" : "keepAlways"
   },
   "testTargets" : [
     {

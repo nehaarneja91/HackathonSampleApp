@@ -9,7 +9,10 @@
     }
   ],
   "defaultOptions" : {
-
+    "areLocalizationScreenshotsEnabled" : true,
+    "language" : "en",
+    "region" : "US",
+    "uiTestingScreenshotsLifetime" : "keepAlways"
   },
   "testTargets" : [
     {

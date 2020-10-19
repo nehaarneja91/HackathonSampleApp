@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7344957253D79290050FD03 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7344956253D79280050FD03 /* SnapshotHelper.swift */; };
 		D77A627F253CE16700D44D31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77A627E253CE16700D44D31 /* AppDelegate.swift */; };
 		D77A6281253CE16700D44D31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77A6280253CE16700D44D31 /* SceneDelegate.swift */; };
 		D77A6286253CE16700D44D31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D77A6284253CE16700D44D31 /* Main.storyboard */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D700B5A2253D71E600FB23EA /* screenshot.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = screenshot.sh; sourceTree = "<group>"; };
+		D7344956253D79280050FD03 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		D77A627B253CE16700D44D31 /* HackathonSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackathonSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77A627E253CE16700D44D31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D77A6280253CE16700D44D31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D700B5A1253D71CD00FB23EA /* CI */ = {
+			isa = PBXGroup;
+			children = (
+				D700B5A2253D71E600FB23EA /* screenshot.sh */,
+			);
+			path = CI;
+			sourceTree = "<group>";
+		};
 		D77A6272253CE16700D44D31 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +124,7 @@
 		D77A627D253CE16700D44D31 /* HackathonSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				D700B5A1253D71CD00FB23EA /* CI */,
 				D77A627E253CE16700D44D31 /* AppDelegate.swift */,
 				D77A6280253CE16700D44D31 /* SceneDelegate.swift */,
 				D77A6284253CE16700D44D31 /* Main.storyboard */,
@@ -136,6 +148,7 @@
 		D77A629F253CE16A00D44D31 /* HackathonSampleAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				D7344956253D79280050FD03 /* SnapshotHelper.swift */,
 				D7B9AFA9253CEF38001DD0BF /* AddEmailFlow.xctestplan */,
 				D7B9AFAA253CEF4A001DD0BF /* ListViewFlow.xctestplan */,
 				D7E46A64253CEE6800C1DB0F /* Overview.xctestplan */,
@@ -314,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77A62A1253CE16A00D44D31 /* HackathonSampleAppUITests.swift in Sources */,
+				D7344957253D79290050FD03 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +574,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.allstate.demoapp.HackathonSampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HackathonSampleApp;
@@ -580,6 +595,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.allstate.demoapp.HackathonSampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HackathonSampleApp;
