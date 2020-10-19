@@ -1,24 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8ad-pO-8bG">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="HackathonSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmR-cZ-3lu">
+                                <rect key="frame" x="155.5" y="460" width="103" height="30"/>
+                                <state key="normal" title="Go to overview"/>
+                                <connections>
+                                    <segue destination="yWk-fi-x9k" kind="show" id="2fl-aY-NiP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XmR-cZ-3lu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FcF-vJ-azO"/>
+                            <constraint firstItem="XmR-cZ-3lu" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="vXw-rd-DMq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Login" id="kKR-Jr-QrD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="134.78260869565219" y="93.75"/>
+        </scene>
+        <!--Overview-->
+        <scene sceneID="RmZ-NH-Mm2">
+            <objects>
+                <viewController id="yWk-fi-x9k" customClass="OveriewController" customModule="HackathonSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YQW-Ze-eRY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxS-xA-Zxc">
+                                <rect key="frame" x="156.5" y="460" width="101" height="30"/>
+                                <state key="normal" title="Go to Me Page"/>
+                                <connections>
+                                    <segue destination="xXt-WE-EAS" kind="show" id="KfH-W2-Wwa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nxS-xA-Zxc" firstAttribute="centerY" secondItem="RlT-wZ-ifc" secondAttribute="centerY" id="1gd-cX-h3a"/>
+                            <constraint firstItem="nxS-xA-Zxc" firstAttribute="centerX" secondItem="RlT-wZ-ifc" secondAttribute="centerX" id="aYR-M7-f88"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RlT-wZ-ifc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Overview" id="KST-FV-UcJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Hh-8n-dxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="934.78260869565224" y="93.75"/>
+        </scene>
+        <!--Me Page-->
+        <scene sceneID="0aO-Oa-iqO">
+            <objects>
+                <viewController id="xXt-WE-EAS" customClass="MePageViewController" customModule="HackathonSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UDc-3c-dQA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYG-ZO-6JE">
+                                <rect key="frame" x="144" y="460" width="126" height="30"/>
+                                <state key="normal" title="Open DF welcome"/>
+                                <connections>
+                                    <segue destination="nJH-Iv-LOu" kind="show" id="dru-ny-GJF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AYG-ZO-6JE" firstAttribute="centerX" secondItem="iec-KO-60F" secondAttribute="centerX" id="CpV-IG-kdU"/>
+                            <constraint firstItem="AYG-ZO-6JE" firstAttribute="centerY" secondItem="iec-KO-60F" secondAttribute="centerY" id="Wk1-Mj-xvF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iec-KO-60F"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Me Page" id="beT-BP-SR8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Bp-Ro-fTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757.9710144927537" y="93.75"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="XGh-NY-5ME">
+            <objects>
+                <viewController id="nJH-Iv-LOu" customClass="DFWelcomeViewController" customModule="HackathonSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pVJ-R3-bCj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0M-h0-t9p">
+                                <rect key="frame" x="173" y="460" width="68" height="30"/>
+                                <state key="normal" title="Add Email"/>
+                                <connections>
+                                    <segue destination="ylz-Do-JDm" kind="presentation" id="cwx-eE-VLB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Digital Footprint" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfa-Ka-HHn">
+                                <rect key="frame" x="20" y="163" width="374" height="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7C-Mb-GtS">
+                                <rect key="frame" x="173" y="523" width="68" height="30"/>
+                                <state key="normal" title="ListView"/>
+                                <connections>
+                                    <segue destination="tYj-xj-BCI" kind="show" id="NPV-24-wxm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="I0M-h0-t9p" firstAttribute="centerX" secondItem="ihX-Wf-OaL" secondAttribute="centerX" id="3tb-wm-Rd3"/>
+                            <constraint firstItem="I0M-h0-t9p" firstAttribute="centerY" secondItem="ihX-Wf-OaL" secondAttribute="centerY" id="4Of-RP-KYx"/>
+                            <constraint firstItem="Xfa-Ka-HHn" firstAttribute="top" secondItem="ihX-Wf-OaL" secondAttribute="top" constant="75" id="GvJ-bn-Mbj"/>
+                            <constraint firstItem="Y7C-Mb-GtS" firstAttribute="leading" secondItem="I0M-h0-t9p" secondAttribute="leading" id="Poo-UT-XMt"/>
+                            <constraint firstItem="Y7C-Mb-GtS" firstAttribute="trailing" secondItem="I0M-h0-t9p" secondAttribute="trailing" id="Rpg-IF-4X9"/>
+                            <constraint firstItem="ihX-Wf-OaL" firstAttribute="trailing" secondItem="Xfa-Ka-HHn" secondAttribute="trailing" constant="20" id="SGl-hc-beC"/>
+                            <constraint firstItem="Xfa-Ka-HHn" firstAttribute="leading" secondItem="ihX-Wf-OaL" secondAttribute="leading" constant="20" id="jVg-Ml-HVX"/>
+                            <constraint firstItem="Y7C-Mb-GtS" firstAttribute="top" secondItem="I0M-h0-t9p" secondAttribute="bottom" constant="33" id="tzR-Ht-rFi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ihX-Wf-OaL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HYl-Jw-3e0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IJe-5j-1hJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2481.1594202898555" y="93.75"/>
+        </scene>
+        <!--Add Email View Controller-->
+        <scene sceneID="H35-Mg-ALy">
+            <objects>
+                <viewController id="ylz-Do-JDm" customClass="AddEmailViewController" customModule="HackathonSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rRC-Hu-HJW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Email Screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjG-xl-0Pz">
+                                <rect key="frame" x="127.5" y="392.5" width="159" height="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UjG-xl-0Pz" firstAttribute="centerX" secondItem="RYI-ZS-5PH" secondAttribute="centerX" id="OYM-9v-92l"/>
+                            <constraint firstItem="UjG-xl-0Pz" firstAttribute="centerY" secondItem="RYI-ZS-5PH" secondAttribute="centerY" id="t3a-10-vk7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RYI-ZS-5PH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EJ8-rR-PF3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uuh-Hz-6Ci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3296" y="94"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="Z2J-yh-Poc">
+            <objects>
+                <viewController id="tYj-xj-BCI" customClass="ListViewController" customModule="HackathonSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Fm-sP-nHX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ListView Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFH-0K-c51">
+                                <rect key="frame" x="134" y="463.5" width="146" height="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nFH-0K-c51" firstAttribute="centerX" secondItem="vHb-3d-HMR" secondAttribute="centerX" id="bzl-17-k9q"/>
+                            <constraint firstItem="nFH-0K-c51" firstAttribute="centerY" secondItem="vHb-3d-HMR" secondAttribute="centerY" id="wQ4-IF-0EK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vHb-3d-HMR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="h3i-ff-YUb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ins-rZ-aWQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2481" y="876"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Tno-P0-FLc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8ad-pO-8bG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LFc-oy-ghA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cf1-Sm-RHZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="suX-Oa-b1d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-775.36231884057975" y="93.75"/>
         </scene>
     </scenes>
 </document>

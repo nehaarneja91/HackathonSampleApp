@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "54F94F4D-683A-4CDC-BD30-CF8D15374F2E",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:HackathonSampleApp.xcodeproj",
+      "identifier" : "D77A627A253CE16700D44D31",
+      "name" : "HackathonSampleApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "HackathonSampleAppUITests\/testAddEmailFlow()",
+        "HackathonSampleAppUITests\/testListViewFlow()",
+        "HackathonSampleAppUITests\/testMePage()"
+      ],
+      "target" : {
+        "containerPath" : "container:HackathonSampleApp.xcodeproj",
+        "identifier" : "D77A629B253CE16A00D44D31",
+        "name" : "HackathonSampleAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
