@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "77E1D1B8-D8D8-40F0-A4C7-5853ADFC94A8",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "areLocalizationScreenshotsEnabled" : true,
+    "language" : "en",
+    "region" : "US",
+    "uiTestingScreenshotsLifetime" : "keepAlways"
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "HackathonSampleAppUITests\/testListViewFlow()",
+        "HackathonSampleAppUITests\/testMePage()",
+        "HackathonSampleAppUITests\/testOverviewPage()"
+      ],
+      "target" : {
+        "containerPath" : "container:HackathonSampleApp.xcodeproj",
+        "identifier" : "D77A629B253CE16A00D44D31",
+        "name" : "HackathonSampleAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

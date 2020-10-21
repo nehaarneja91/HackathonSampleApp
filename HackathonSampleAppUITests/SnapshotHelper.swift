@@ -170,16 +170,21 @@ open class Snapshot: NSObject {
         guard var simulator = ProcessInfo().environment["SIMULATOR_DEVICE_NAME"], let screenshotsDir = screenshotsDirectory else { return }
 
             do {
-                // The simulator name contains "Clone X of " inside the screenshot file when running parallelized UI Tests on concurrent devices
                 let regex = try NSRegularExpression(pattern: "Clone [0-9]+ of ")
                 let range = NSRange(location: 0, length: simulator.count)
                 simulator = regex.stringByReplacingMatches(in: simulator, range: range, withTemplate: "")
-
-                let path = screenshotsDir.appendingPathComponent("\(simulator)-\(name).png")
-                try image.pngData()?.write(to: path, options: .atomic)
+                
+                let attributes: [FileAttributeKey: Any] = [FileAttributeKey.protectionKey : FileProtectionType.none]
+                try FileManager.default.createDirectory(at: screenshotsDir, withIntermediateDirectories: true, attributes: attributes)
+                
+                let filePath = screenshotsDir.appendingPathComponent("\(simulator)-\(name).png", isDirectory: false)
+                               
+                try image.pngData()?.write(to: filePath, options: .atomic)
+                
             } catch let error {
                 NSLog("Problem writing screenshot: \(name) to \(screenshotsDir)/\(simulator)-\(name).png")
                 NSLog(error.localizedDescription)
+                print(error)
             }
         #endif
     }
@@ -224,11 +229,12 @@ open class Snapshot: NSObject {
 //                throw SnapshotError.cannotFindSimulatorHomeDirectory
 //            }
 //        
-        guard let simulatorFrameworkPath = ProcessInfo().environment["DYLD_FRAMEWORK_PATH"] else {
+        guard let simulatorBuildDirPath = ProcessInfo().environment["__XCODE_BUILT_PRODUCTS_DIR_PATHS"] else {
             throw SnapshotError.cannotFindSimulatorHomeDirectory
         }
-            let homeDir = URL(fileURLWithPath: simulatorFrameworkPath)
-            return homeDir.appendingPathComponent(cachePath)
+            let homeDir = URL(fileURLWithPath: simulatorBuildDirPath)
+            //return homeDir.appendingPathComponent(cachePath)
+        return homeDir
         #else
             throw SnapshotError.cannotRunOnPhysicalDevice
         #endif

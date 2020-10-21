@@ -29,14 +29,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:HackathonSampleAppUITests/ListViewFlow.xctestplan">
+            reference = "container:HackathonSampleAppUITests/ListViewFlow.xctestplan"
+            default = "YES">
          </TestPlanReference>
          <TestPlanReference
             reference = "container:HackathonSampleAppUITests/MePageFlow.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:HackathonSampleAppUITests/Overview.xctestplan"
-            default = "YES">
+            reference = "container:HackathonSampleAppUITests/Overview.xctestplan">
          </TestPlanReference>
          <TestPlanReference
             reference = "container:HackathonSampleAppUITests/AddEmailFlow.xctestplan">

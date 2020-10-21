@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "714CE8D5-618E-41DC-AD4C-CFFE868C69FB",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "areLocalizationScreenshotsEnabled" : true,
+    "language" : "en",
+    "region" : "US",
+    "uiTestingScreenshotsLifetime" : "keepAlways"
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "HackathonSampleAppUITests\/testAddEmailFlow()",
+        "HackathonSampleAppUITests\/testMePage()",
+        "HackathonSampleAppUITests\/testOverviewPage()"
+      ],
+      "target" : {
+        "containerPath" : "container:HackathonSampleApp.xcodeproj",
+        "identifier" : "D77A629B253CE16A00D44D31",
+        "name" : "HackathonSampleAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
