@@ -13,52 +13,80 @@ class HackathonSampleAppUITests: XCTestCase {
     let app = XCUIApplication()
     
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        
+        setupScreenshot(app: app, testCase: self)
         app.launch()
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
     }
     
     func testOverviewPage() {
-  
         app.buttons["Go to overview"].tap()
+        screenshot(name: "Overview")
     }
     
     func testMePage() {
         app.buttons["Go to overview"].tap()
         app.buttons["Go to Me Page"].tap()
+        screenshot(name: "Me Page")
     }
     
     func testAddEmailFlow() {
+        screenshot(name: "Login")
         app.buttons["Go to overview"].tap()
+        screenshot(name: "Overview")
         app.buttons["Go to Me Page"].tap()
+        screenshot(name: "Me Page")
         app.buttons["Open DF welcome"].tap()
+        screenshot(name: "DF Welcome Screen")
         app.buttons["Add Email"].tap()
+        screenshot(name: "Add Email")
     }
     
     func testListViewFlow() {
+        screenshot(name: "Login")
         app.buttons["Go to overview"].tap()
+        screenshot(name: "Overview")
         app.buttons["Go to Me Page"].tap()
+        screenshot(name: "Me Page")
         app.buttons["Open DF welcome"].tap()
+        screenshot(name: "DF Welcome Screen")
         app.buttons["ListView"].tap()
+        screenshot(name: "Add Email")
     }
 }
 
-
-class Screenshot {
+class ScreenshotHelper {
     static var app: XCUIApplication?
     static var testCase: XCTestCase?
     
-    func <#name#>(<#parameters#>) -> <#return type#> {
-        <#function body#>
+    static func screenshot(name: String, lifetTime: XCTAttachment.Lifetime = .keepAlways) {
+        guard let app = app, let testCase = testCase else {
+            return
+        }
+        
+        let attachment = XCTAttachment(screenshot: app.screenshot())
+        attachment.name = name
+        attachment.lifetime = lifetTime
+        testCase.add(attachment)
+        snapshot(name)
+        //Save into folder
+        
+        
     }
 }
+
+func setupScreenshot(app: XCUIApplication, testCase: XCTestCase) {
+    ScreenshotHelper.app = app
+    ScreenshotHelper.testCase = testCase
+    setupSnapshot(app)
+}
+
+func screenshot(name: String, lifetTime: XCTAttachment.Lifetime = .keepAlways) {
+    ScreenshotHelper.screenshot(name: name, lifetTime: lifetTime)
+}
+
 
 

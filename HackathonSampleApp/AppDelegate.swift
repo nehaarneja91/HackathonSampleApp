@@ -15,6 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let string = "Hello: randhir "
+        string.trimmingCharacters(in: CharacterSet.newlines)
+        let range = string.range(of: "Hello:")
+        let startIndex = string.index(after: range!.upperBound)
+        
+        let testPlans = String(string[startIndex...]).split(separator: " ").map { (subString) -> String in
+            return subString.trimmingCharacters(in: CharacterSet.newlines)
+        }
+        print(testPlans)
+        
         return true
     }
 
