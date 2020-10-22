@@ -28,12 +28,17 @@ jobs:
       with:
         name: Screenshots
         path: screenshots/*
-    - name: hello
+  
+  Download Artifact:
+    name: Download Artifact
+    needs: build
+    runs-on: macos-latest
+    steps:
     - uses: actions/checkout@v2
-    - name: Artifactory Path 
     - uses: actions/download-artifact@v2
       with:
-       name: Screenshots
-       path: screenshots
-    - name: 'Artifactory Download path'
+        name: Screenshots
+        path: screenshots
+    - name: 'Echo download path'
       run: echo ${{steps.download.outputs.download-path}}
+ 
