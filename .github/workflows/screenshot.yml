@@ -29,7 +29,7 @@ jobs:
         name: Screenshots
         path: screenshots/*
   
-  Download Artifact:
+  Download_Artifact:
     name: Download Artifact
     needs: build
     runs-on: macos-latest
