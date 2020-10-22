@@ -2,7 +2,6 @@
 
 import Foundation
 
-print("Starting...")
 // MARK: - SimulatorManager
 struct SimulatorManager: Codable {
     let repository: DeviceRepository
@@ -71,10 +70,6 @@ enum State: String, Codable {
     case shutdown = "Shutdown"
 }
 
-
-let process = Process()
-process.executableURL = URL(fileURLWithPath: "/usr/bin/env")
-
 let scheme = "HackathonSampleAppUITests"
 let projectScheme = "HackathonSampleApp"
 let project = "HackathonSampleApp.xcodeproj"
@@ -82,6 +77,8 @@ let platform = "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.2.2"
 let CONFIGURATION = "Debug"
 
 func getTestPlans() -> [String] {
+    let process = Process()
+    process.executableURL = URL(fileURLWithPath: "/usr/bin/env")
     let pipe = Pipe()
     var testPlans = [String]()
     process.standardOutput = pipe
@@ -107,8 +104,6 @@ func getTestPlans() -> [String] {
     }
     return testPlans
 }
-
-let testPlanList = getTestPlans()
 
 func makeScreenshotDir() {
     let process = Process()
@@ -175,6 +170,8 @@ func getAvailableDevices() -> [Device] {
 let devices = getAvailableDevices()
 
 func runTest() {
+    print("Started Capturing Screenshots....")
+    let testPlanList = getTestPlans()
     let process = Process()
     process.executableURL = URL(fileURLWithPath: "/usr/bin/env")
     
@@ -217,9 +214,33 @@ func runTest() {
 }
 
 
-print("--------------Available Schemes--------------")
-print(testPlanList)
-runTest()
+for argument in CommandLine.arguments {
+    if argument == "./script.swift" {
+        continue
+    }
+    
+    switch argument {
+    case "screenshot":
+        print("--------------Capturing Screenshot--------------")
+        runTest()
+    case "availableSimulators":
+        let sims = getAvailableDevices().map { (device) in
+            return device.name
+        }
+        print(sims)
+    case "showTestPlans":
+        print(getTestPlans())
+    case "-help":
+        print("Usage: ./script.swift [screenshot | availableSimulators | showTestPlans]")
+    default:
+        print("./script.swift: error: invalid option '\(argument)'")
+        print("Usage: ./script.swift [screenshot | availableSimulators | showTestPlans]")
+        exit(0)
+    }
+}
+
+//print(testPlanList)
+//runTest()
 
 
 
