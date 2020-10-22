@@ -41,5 +41,5 @@ jobs:
         name: Screenshots
         path: screenshots
     - name: 'Echo download path'
-      run: echo ${{steps[download].download.outputs.download-path}}
+      run: echo ${{steps.download.outputs.download-path}}
  
