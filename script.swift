@@ -150,7 +150,7 @@ func getAvailableDevices() -> [Device] {
     process.executableURL = URL(fileURLWithPath: "/usr/bin/env")
     let pipe = Pipe()
     process.standardOutput = pipe
-    process.arguments = ["xcrun", "simctl", "list", "devices", "--json", "-v"]
+    process.arguments = ["xcrun", "simctl", "list", "--json", "-v"]
     
     do {
         try process.run()
