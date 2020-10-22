@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print("test branch")
         let string = "Hello: randhir "
         string.trimmingCharacters(in: CharacterSet.newlines)
         let range = string.range(of: "Hello:")
