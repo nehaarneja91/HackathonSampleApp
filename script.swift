@@ -1,5 +1,76 @@
 #!/usr/bin/env swift
+
 import Foundation
+
+print("Starting...")
+// MARK: - SimulatorManager
+struct SimulatorManager: Codable {
+    let repository: DeviceRepository
+    
+    enum CodingKeys: String, CodingKey {
+        case repository = "devices"
+    }
+}
+
+struct DeviceRepository: Codable {
+    var devices: [Device]
+    
+    private struct DynamicCodingKeys: CodingKey {
+        var stringValue: String
+        init?(stringValue: String) {
+            self.stringValue = stringValue
+        }
+        
+        var intValue: Int?
+        init?(intValue: Int) {
+            return nil
+        }
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: DynamicCodingKeys.self)
+
+        var tempArray = [Device]()
+
+        for key in container.allKeys {
+            var deviceType = "unknown"
+            
+            if key.stringValue.contains("iOS") {
+                deviceType = "iOS"
+            } else if key.stringValue.contains("watchOS") {
+                deviceType = "watchOS"
+            } else if key.stringValue.contains("tvOS") {
+                deviceType = "tvOS"
+            }
+            
+            let devices = try container.decode([Device].self, forKey: DynamicCodingKeys(stringValue: key.stringValue)!)
+            
+            tempArray += devices.map { (device) -> Device in
+                var deviceTemp = device
+                deviceTemp.type = deviceType
+                return deviceTemp
+            }
+        }
+        devices = tempArray
+    }
+}
+
+//enum DeviceType: Codable {
+//    case ios, tvOS, watchOS
+//}
+
+// MARK: - Device
+struct Device: Codable {
+    let state: State
+    let isAvailable: Bool
+    let name, udid: String
+    var type: String?
+}
+
+enum State: String, Codable {
+    case shutdown = "Shutdown"
+}
+
 
 let process = Process()
 process.executableURL = URL(fileURLWithPath: "/usr/bin/env")
@@ -38,11 +109,6 @@ func getTestPlans() -> [String] {
 }
 
 let testPlanList = getTestPlans()
-
-//xcodebuild -showTestPlans -project HackathonSampleApp.xcodeproj -scheme HackathonSampleAppUITests
-//xcodebuild test -project SnapShotExperiment.xcodeproj -scheme SnapShotExperimentUITests -testPlan SnapShotExperimentUITests
-//xcodebuild -project HackathonSampleApp.xcodeproj -scheme HackathonSampleAppUITests -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.2.2' test
-
 
 func makeScreenshotDir() {
     let process = Process()
@@ -83,15 +149,57 @@ func removeDerivedDataDir() {
     }
 }
 
+//xcrun simctl list devices --json -v
+func getAvailableDevices() -> [Device] {
+    let process = Process()
+    process.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+    let pipe = Pipe()
+    process.standardOutput = pipe
+    process.arguments = ["xcrun", "simctl", "list", "devices", "--json", "-v"]
+    
+    do {
+        try process.run()
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let jsonDecoder = JSONDecoder()
+        let devices = try jsonDecoder.decode(SimulatorManager.self, from: data).repository.devices
+        //print("Devices: \(devices)")
+        return devices
+        
+    } catch {
+        print("Error")
+        return []
+    }
+}
+
+
+let devices = getAvailableDevices()
+
 func runTest() {
     let process = Process()
     process.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+    
+    //Select only one iOS simulator to run on
+    let simulator = devices.filter { (device) in
+        if let type = device.type {
+            return type == "iOS"
+        }
+        return false
+    }.first
+    
+    guard let availableSimulator = simulator else {
+        print("Unable to find simulator.")
+        return
+    }
+    
+    print("Availabel simulator: \(availableSimulator.name)")
+    
+    let destination = "platform=iOS Simulator,name=\(availableSimulator.name)"
     
     process.arguments = [
         "xcodebuild",
         "-project", project,
         "-scheme", projectScheme,
-        "-destination", platform,
+        "-destination", destination,
         "-testPlan", testPlanList[1],
         "-derivedDataPath", "DerivedData",
         "test"
@@ -107,9 +215,13 @@ func runTest() {
         print("Error while testing")
     }
 }
+
+
 print("--------------Available Schemes--------------")
 print(testPlanList)
 runTest()
+
+
 
 
 

@@ -1,0 +1,45 @@
+name: Swift
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [feature/* ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    #- name: Available Simulators
+     # run: xcrun simctl list --json -v
+    - name: Take Screenshots
+      run: ./script.swift
+    - name: print ls
+      run: ls -tree
+    - name: change dir
+      run: cd screenshots
+    - name: list out screenshots
+      run: ls -tree
+    - name: Archive screenshot to artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Screenshots
+        path: screenshots/*
+  
+  Download_Artifact:
+    name: Download Artifact
+    needs: build
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v2
+      id: download
+      with:
+        name: Screenshots
+        path: screenshots
+    - name: 'Echo download path'
+      run: echo ${{steps.download.outputs.download-path}}
+ 
