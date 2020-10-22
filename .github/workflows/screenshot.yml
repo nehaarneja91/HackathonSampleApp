@@ -23,3 +23,8 @@ jobs:
       run: cd screenshots
     - name: list out screenshots
       run: ls -tree
+    - name: Archive screenshot to artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Screenshots
+        path: screenshots/*
