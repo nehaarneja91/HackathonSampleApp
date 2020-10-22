@@ -17,3 +17,9 @@ jobs:
      # run: xcrun simctl list --json -v
     - name: Take Screenshots
       run: ./script.swift
+    - name: print ls
+      run: ls -tree
+    - name: change dir
+      run: cd screenshots
+    - name: list out screenshots
+      run: ls -tree
