@@ -197,7 +197,7 @@ func runTest() {
         "-project", project,
         "-scheme", projectScheme,
         "-destination", destination,
-        "-testPlan", testPlanList[1],
+        "-testPlan", testPlanList[2],
         "-derivedDataPath", "DerivedData",
         "test"
     ]
