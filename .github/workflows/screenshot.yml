@@ -13,9 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Available Simulators
-      run: xcrun simctl list --json -v
-    - name: Build
-      run: pwd
-   # - name: Take Screenshots
-     # run: ./script.swift
+    #- name: Available Simulators
+     # run: xcrun simctl list --json -v
+    - name: Take Screenshots
+      run: ./script.swift
